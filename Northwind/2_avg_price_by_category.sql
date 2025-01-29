@@ -1,5 +1,4 @@
-SELECT product_name
+SELECT category_id,
+       ROUND(AVG(unit_price)::numeric, 2)
 FROM northwind.products
-WHERE unit_price >
-    (SELECT AVG(unit_price)
-     FROM northwind.products);
+GROUP BY category_id;
